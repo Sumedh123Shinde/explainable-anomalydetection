@@ -1,20 +1,31 @@
-from models.isolation_forest import run_isolation_forest
-from models.autoencoder import run_autoencoder
+from sklearn.ensemble import IsolationForest
+import numpy as np
 
-def run_anomaly_engine(X, method, params):
+
+def run_anomaly_engine(X, method="Isolation Forest", params=None):
+
     if method == "Isolation Forest":
-        return run_isolation_forest(
-            X,
-            contamination=params.get("contamination", 0.05)
+
+        contamination = params.get("contamination", 0.05)
+
+        model = IsolationForest(
+            contamination=contamination,
+            random_state=42
         )
 
-    elif method == "Autoencoder":
-        return run_autoencoder(
-            X,
-            epochs=params.get("epochs", 30),
-            batch_size=params.get("batch_size", 32),
-            anomaly_percentile=params.get("percentile", 95)
-        )
+        model.fit(X)
+
+        predictions = model.predict(X)
+
+        # Convert: -1 = anomaly, 1 = normal
+        anomaly_mask = predictions == -1
+
+        scores = -model.decision_function(X)
+
+        return {
+            "anomaly_mask": anomaly_mask,
+            "scores": scores
+        }
 
     else:
-        raise ValueError("Unknown anomaly detection method")
+        raise ValueError("Only Isolation Forest supported in this version.")
