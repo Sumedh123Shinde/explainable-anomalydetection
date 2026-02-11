@@ -1,6 +1,11 @@
-LIVE DEMO
+## LIVE DEMO
 
 https://explainable-anomalydetection-2pedvgbgxbq6rtbaw9cxmn.streamlit.app/
+
+## Dashboard Preview
+
+![Dashboard](Explainable Anomaly Detection·Streamlit.pdf)
+
 
 # 🧠 Explainable Anomaly Detection Platform
 
