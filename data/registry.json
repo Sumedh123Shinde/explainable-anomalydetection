@@ -1,0 +1,12 @@
+{
+  "nab_ec2_cpu": {
+    "path": "data/raw/realAWSCloudwatch/ec2_cpu_utilization_5f5533.csv",
+    "type": "time_series",
+    "description": "NAB EC2 CPU utilization dataset"
+  },
+  "cloud_cost": {
+    "path": "data/processed/cloud_cost_processed.csv",
+    "type": "tabular",
+    "description": "Cloud Cost Processed"
+  }
+}
