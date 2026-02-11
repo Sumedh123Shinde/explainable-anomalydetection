@@ -1,3 +1,7 @@
+LIVE DEMO
+
+https://explainable-anomalydetection-2pedvgbgxbq6rtbaw9cxmn.streamlit.app/
+
 # 🧠 Explainable Anomaly Detection Platform
 
 An intelligent, dataset-agnostic anomaly detection system built using Machine Learning and Streamlit.
